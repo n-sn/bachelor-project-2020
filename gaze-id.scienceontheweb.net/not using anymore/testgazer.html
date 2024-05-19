@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>My First Web Page</h1>
+<p>My First Paragraph</p>
+
+<p id="demo"></p>
+<p id="gazerstatus"> status </p>
+<button onclick="statusupdate()"> Statusrequest </button>
+<script src="webgazer.js"></script>
+<script>
+webgazer.begin();
+
+
+
+//document.write("GAZER STATE   " + webgazer.isReady());
+function coordupdate() {
+var x = 0;
+var y = 0;
+var prediction = webgazer.getCurrentPrediction();
+if (prediction) {
+    x = prediction.x;
+    y = prediction.y;
+}
+}
+
+function statusupdate() {
+document.getElementById("gazerstatus").innerHTML = "Status = " +  webgazer.isReady();
+webgazer.begin();
+}
+
+
+document.getElementById("demo").innerHTML = 5 + 6 + " " + x + " " + y;
+</script>
+
+
+
+</body>
+</html>

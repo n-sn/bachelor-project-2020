@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+
+</style> 
+<body>
+
+
+  <input id="probablyId" type="text">
+  <input id="button" type="button" value="Submit ID" onClick="drawS()">
+
+
+
+
+<canvas id="myCanvas" width="800" height="800">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+c.width = window.innerWidth;
+c.height = window.innerHeight;
+var ctx = c.getContext("2d");
+var coordArray;
+
+
+
+
+
+function drawS() {
+          var fhttp = new XMLHttpRequest();
+          console.log("getting array");
+          fhttp.open("POST", "getFixations.php", false);
+          var $id = document.getElementById("probablyId").value;
+          //alert($id);
+          fhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                      
+                      
+                      //var passedArray = <?php echo '["' . implode('", "', this.responseText) . '"]' ?>;
+                      
+                      
+                      coordArray = this.responseText.trim().split("_");
+                      //console.log(uid);
+                      console.log("getting response");
+                      //alert(this.responseText.parseInt());
+                      //alert("test");
+                   
+            }
+          };
+         
+         fhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+         fhttp.send("id="+$id);  
+         
+         
+         
+         //document.getElementById("probablyId").style.display="none";
+         //document.getElementById("button").style.display="none";
+
+
+var i;
+for (i = 0; i < coordArray.length; i=i+2) { 
+  ctx.rect(coordArray[i], coordArray[(i+1)], 100, 100);
+}
+
+
+ctx.stroke();
+         
+         
+         
+         
+   }
+
+
+
+
+</script> 
+
+</body>
+</html>

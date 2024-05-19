@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+
+<button type="button" onclick="sendFunction()">Request data</button>
+
+
+
+
+<p id="demo"></p>
+<script>
+  var xhttp = new XMLHttpRequest();
+ 
+ var text = "testing multi sends with opening each time";
+ 
+  function sendFunction() {
+ 
+   xhttp.open("POST", "savetodb.php", true);
+ xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+ xhttp.send("text="+text);
+};
+
+
+xhttp.onreadystatechange=function() {
+    
+    
+  };
+
+</script>
+
+</body>
+</html>

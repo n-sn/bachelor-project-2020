@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.box {
+  float: left;
+  width: 20%;
+  padding: 100px;
+}
+
+.button {
+
+
+}
+
+.insidebutton {
+        
+	padding: 10px 25px
+
+
+}
+
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
+<title>Assigning id..</title>
+
+</head>
+<body>
+
+
+
+<div class="clearfix">
+  <div class="box" style="background-color:#bbb">
+  <p class = "button"><button class = "insidebutton" id = "11" onclick = "update()">click me</button></p>
+  </div>
+  <div class="box" style="background-color:#ccc">
+  <p class = "button"><button class = "insidebutton" id = "12" onclick = "update()">click me</button></p>
+  </div>
+  <div class="box" style="background-color:#ddd">
+    <p class = "button"><button class = "insidebutton" id = "13" onclick = "update()">click me</button></p>
+  </div>
+ <div class="box" style="background-color:#bbb">
+    <p class = "button"><button class = "insidebutton" id = "14" onclick = "update()">click me</button></p>
+  </div>
+  <div class="box" style="background-color:#ccc">
+    <p class = "button"><button class = "insidebutton" id = "15" onclick = "update()">click me</button></p>
+  </div>
+</div>
+
+<div class="clearfix">
+
+  <div class="box" style="background-color:#ccc">
+    <p class = "button"><button class = "insidebutton" id = "21" onclick = "update()">click me</button></p>
+  </div>
+  <div class="box" style="background-color:#ddd">
+    <p class = "button"><button class = "insidebutton" id = "22" onclick = "update()">click me</button></p>
+  </div>
+ <div class="box" style="background-color:#bbb">
+    <p class = "button"><button class = "insidebutton" id = "23" onclick = "update()">click me</button></p>
+  </div>
+  <div class="box" style="background-color:#ccc">
+    <p class = "button"><button class = "insidebutton" id = "24" onclick = "update()">click me</button></p>
+  </div>
+  <div class="box" style="background-color:#bbb">
+    <p class = "button"><button class = "insidebutton" id = "25" onclick = "update()">click me</button></p>
+  </div>
+</div>
+
+<div class="clearfix">
+
+
+  <div class="box" style="background-color:#ddd">
+    <p class = "button"><button class = "insidebutton" id = "31" onclick = "update()">click me</button></p>
+  </div>
+ <div class="box" style="background-color:#bbb">
+    <p class = "button"><button class = "insidebutton" id = "32" onclick = "update()">click me</button></p>
+  </div>
+  <div class="box" style="background-color:#ccc">
+    <p class = "button"><button class = "insidebutton" id = "33" onclick = "update()">click me</button></p>
+  </div>
+  <div class="box" style="background-color:#bbb">
+   <p class = "button"><button class = "insidebutton" id = "34" onclick = "update()">click me</button></p>
+  </div>
+  <div class="box" style="background-color:#ccc">
+    <p class = "button"><button class = "insidebutton" id = "35" onclick = "update()">click me</button></p>
+  </div> 
+</div>
+
+<div class="clearfix">
+
+
+ <div class="box" style="background-color:#bbb">
+    <p class = "button"><button class = "insidebutton" id = "41" onclick = "update()">click me</button></p>
+  </div>
+  <div class="box" style="background-color:#ccc">
+    <p class = "button"><button class = "insidebutton" id = "42" onclick = "update()">click me</button></p>
+  </div>
+  <div class="box" style="background-color:#bbb">
+    <p class = "button"><button class = "insidebutton" id = "43" onclick = "update()">click me</button></p>
+  </div>
+  <div class="box" style="background-color:#ccc">
+   <p class = "button"><button class = "insidebutton" id = "44" onclick = "update()">click me</button></p>
+  </div>
+  <div class="box" style="background-color:#ddd">
+    <p class = "button"><button class = "insidebutton" id = "45" onclick = "update()">click me</button></p>
+  </div>
+</div>
+
+<p>Note that we also use the clearfix hack to take care of the layout flow, and that add the box-sizing property to make sure that the box doesn't break due to extra padding. Try to remove this code to see the effect.</p>
+<script src="webgazer.js"></script>
+<script>
+webgazer.begin();
+
+
+
+//IMPORTANT CONSTANTS://default 50 and 100
+var detectionRadius = 100;
+var detectionTime   = 200;
+
+ var xhttp = new XMLHttpRequest();
+ var yhttp = new XMLHttpRequest();
+ var uid;
+ 
+ 
+ getNewID();
+ 
+var x_s = 1;
+var y_s = 1;
+var t_s = 1;
+var t_l = 1;
+
+console.log("new id is "+ uid);
+
+webgazer.setGazeListener(function(data, elapsedTime) {
+    if (data == null) {
+        return;
+    }
+    xprediction = data.x; //these x coordinates are relative to the viewport
+    yprediction = data.y; //these y coordinates are relative to the viewport
+    //console.log(elapsedTime); //elapsed time is based on time since begin was called
+        detectFixations(data.x,data.y,elapsedTime);
+
+
+   
+
+
+
+
+
+	document.getElementById("11").innerHTML = xprediction + " " + yprediction;
+	document.getElementById("12").innerHTML = xprediction + " " + yprediction;
+	document.getElementById("13").innerHTML = xprediction + " " + yprediction;
+	document.getElementById("14").innerHTML = xprediction + " " + yprediction;
+	document.getElementById("15").innerHTML = xprediction + " " + yprediction;
+
+
+	document.getElementById("21").innerHTML = xprediction + " " + yprediction;
+	document.getElementById("22").innerHTML = xprediction + " " + yprediction;
+	document.getElementById("23").innerHTML = xprediction + " " + yprediction;
+	document.getElementById("24").innerHTML = xprediction + " " + yprediction;
+	document.getElementById("25").innerHTML = xprediction + " " + yprediction;
+
+
+	document.getElementById("31").innerHTML = xprediction + " " + yprediction;
+	document.getElementById("32").innerHTML = xprediction + " " + yprediction;
+	document.getElementById("33").innerHTML = xprediction + " " + yprediction;
+	document.getElementById("34").innerHTML = xprediction + " " + yprediction;
+	document.getElementById("35").innerHTML = xprediction + " " + yprediction;
+
+
+	document.getElementById("41").innerHTML = xprediction + " " + yprediction;
+	document.getElementById("42").innerHTML = xprediction + " " + yprediction;
+	document.getElementById("43").innerHTML = xprediction + " " + yprediction;
+	document.getElementById("44").innerHTML = xprediction + " " + yprediction;
+	document.getElementById("45").innerHTML = xprediction + " " + yprediction;
+
+
+
+}).begin();
+
+
+
+function detectFixations(x,y,time) {
+
+        console.log("detecting fixations");
+        if (Math.abs(x_s - x) < detectionRadius) {
+
+                if (Math.abs(y_s - y) < detectionRadius) {
+                        
+                        //this happens when gaze is within the previous gaze
+                        t_l = time;
+                        return;
+                        
+                } else {
+                        
+                        }
+        } else {
+               
+               }
+
+
+        //this happens when the gaze is not within the previous gaze;
+        
+        if ( (t_l - t_s) > 100 ) {
+        
+                //SAVETODB
+                saveToDB(x,y,(t_l-t_s));
+                
+                
+        
+        } else {
+        
+                }
+                
+        //RESET ALL FIXATION POINT ATTRIBUTES        
+        t_l = time;
+        t_s = time;
+        x_s = x;
+        y_s = y;
+        
+
+}
+
+
+
+function saveToDB(xcoord, ycoord, len) {
+
+             console.log("saving to db"+uid);
+         xhttp.open("POST", "savefixation.php", true);
+         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+         xhttp.send("xcoord="+xcoord+"&ycoord="+ycoord+"&len="+len+"&id="+uid);   
+
+}
+
+
+function getNewID() {
+
+          console.log("geting new id");
+          yhttp.open("POST", "id.php", false);
+         
+          yhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                      uid = parseInt(this.responseText, 10);
+                      console.log(uid);
+                      document.title = "ID: " + uid;
+                      console.log("getting response");
+                      //alert(this.responseText.parseInt());
+                      //alert("test");
+                   
+            }
+          };
+         
+         yhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+         yhttp.send("datestamp="+Date.now());  
+
+        
+
+}
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
+
